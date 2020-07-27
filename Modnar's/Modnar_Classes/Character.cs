@@ -43,7 +43,7 @@ namespace Modnar_Classes
             }
             else
             {
-                return $"{_name} killed {target.Name}!!!";
+                return $"{_name} attacks {target.Name} and kills it!!!";
             }
             
         }

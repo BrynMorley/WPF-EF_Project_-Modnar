@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using Modnar_Classes;
 
 namespace Modnar_GUI
@@ -21,14 +22,23 @@ namespace Modnar_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Player playerTest = new Player("Test", 100, 10,10);
-        Monster currentMonster = new Monster("Monster", 100, 10, 10);
+        Player playerTest = new Player("Test", 100, 10,1);
+
+        Player currentPlayer = new Player("Default", 50, 5, 1);
+
+        Monster currentMonster = new Monster("Monster", 100, 10, 2);
 
         public MainWindow()
         {
             InitializeComponent();
             Label_P1Name.Content = playerTest.Name;
             Label_P1Health.Content = playerTest.Health;
+
+          
+            //while(playerTest.Health != 0 || currentMonster.Health !=0)
+            //{ 
+            
+            //}
             
         }
        
