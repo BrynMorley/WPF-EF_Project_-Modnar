@@ -7,7 +7,7 @@ namespace Modnar_Classes
    public class Player : Character
     {
 
-        public Player (string name, int health) : base(name,health)
+        public Player (string name, int health, int damage) : base(name, health, damage)
         {
 
         }
