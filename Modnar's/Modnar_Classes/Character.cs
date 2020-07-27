@@ -26,11 +26,12 @@ namespace Modnar_Classes
             get { return _damage; } set { _damage = value; }
         }
 
-        public Character (string name, int health, int damage)
+        public Character (string name, int health, int damage, int speed)
         {
             _name = name;
             _health = health;
             _damage = damage;
+            _speed = speed;
         }
 
         public virtual string Attack(IAttackable target)

@@ -14,7 +14,7 @@ namespace Modnar_Tests
         [TestCase ("Test", 100)]
         public void Test1(string nameActual, int healthActual)
         {
-            var player = new Player("Test", 100,10);
+            var player = new Player("Test", 100,10,10);
             
             Assert.AreEqual(player.Name, nameActual);
             Assert.AreEqual(player.Health, healthActual);

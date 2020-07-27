@@ -21,8 +21,8 @@ namespace Modnar_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Player playerTest = new Player("Test", 100, 10);
-        Monster currentMonster = new Monster("Monster", 100, 10);
+        Player playerTest = new Player("Test", 100, 10,10);
+        Monster currentMonster = new Monster("Monster", 100, 10, 10);
 
         public MainWindow()
         {
