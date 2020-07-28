@@ -10,7 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modnar_Tests", "Modnar_Test
 		{B89368FE-2BEF-404E-9560-4F9328F33FD0} = {B89368FE-2BEF-404E-9560-4F9328F33FD0}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modnar_Controller", "Modnar_GUI\Modnar_Controller.csproj", "{02300CB4-D120-4DF8-B682-A6D809D18454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modnar_Controller", "Modnar_GUI\Modnar_Controller.csproj", "{02300CB4-D120-4DF8-B682-A6D809D18454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modnar_Model", "Modnar_Model\Modnar_Model.csproj", "{E91E1EA3-F77E-457D-A362-637235D0025F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,10 @@ Global
 		{02300CB4-D120-4DF8-B682-A6D809D18454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02300CB4-D120-4DF8-B682-A6D809D18454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02300CB4-D120-4DF8-B682-A6D809D18454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E91E1EA3-F77E-457D-A362-637235D0025F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E91E1EA3-F77E-457D-A362-637235D0025F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E91E1EA3-F77E-457D-A362-637235D0025F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E91E1EA3-F77E-457D-A362-637235D0025F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

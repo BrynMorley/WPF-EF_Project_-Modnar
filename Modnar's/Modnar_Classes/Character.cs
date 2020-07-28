@@ -11,6 +11,7 @@ namespace Modnar_Classes
         private int _damage;
         private int _speed;
 
+       
         public int Health
         {
             get { return _health; } set { _health = value; }
@@ -24,6 +25,12 @@ namespace Modnar_Classes
         public int Damage
         {
             get { return _damage; } set { _damage = value; }
+        }
+
+        public int Speed
+        {
+            get { return _speed; }
+            set { _speed = value; }
         }
 
         public Character (string name, int health, int damage, int speed)

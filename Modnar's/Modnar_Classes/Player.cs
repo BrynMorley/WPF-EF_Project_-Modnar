@@ -11,5 +11,7 @@ namespace Modnar_Classes
         {
 
         }
+
+        public int playerID { get; set; }
     }
 }
