@@ -35,7 +35,9 @@ namespace Modnar_GUI
         Monster currentMonster = new Monster("Monster", 100, 10, 2);
 
         Queue playerQueue = new Queue();
+
         int killCount = 0;
+        int turnsPassed = 0;
 
         public MainWindow()
         {
@@ -94,7 +96,13 @@ namespace Modnar_GUI
                 }
                 
             }
-
+            else
+            {
+                killCount++;
+                Label_Kills.Content = $"Monster Kills: {killCount}";
+            }
+            turnsPassed++;
+            Label_Current_Turn.Content = $"Turn: {turnsPassed}";
         }
     } 
 }

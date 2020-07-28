@@ -35,7 +35,8 @@
         <Image Source="https://i.pinimg.com/originals/73/6e/49/736e491d7b81aca7b48b5d61a3add126.png" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
         <Image Source="https://i.pinimg.com/originals/73/6e/49/736e491d7b81aca7b48b5d61a3add126.png" Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
 
-        <Label x:Name="Label_Current_Turn" Content="Current Turn:" Grid.Column="1" Grid.Row="6" Background="Aquamarine" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <Label x:Name="Label_Current_Turn" Content="Turn: 0" Grid.Column="1" Grid.Row="6" Background="Aquamarine" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <Label x:Name="Label_Kills" Content="Monster Kills: 0" Grid.Column="1" Grid.Row="7" Background="Aquamarine" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         <Button x:Name="Button_Attack" Content="Attack" Grid.Column="2" Grid.Row="6" Click="Button_Attack_Click"/>
         
         <Label x:Name="Label_P1Name" Content="" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>

@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modnar_View", "Modnar_Classes\Modnar_View.csproj", "{B89368FE-2BEF-404E-9560-4F9328F33FD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modnar_Controller", "Modnar_Classes\Modnar_Controller.csproj", "{B89368FE-2BEF-404E-9560-4F9328F33FD0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modnar_Tests", "Modnar_Tests\Modnar_Tests.csproj", "{25B60D52-F259-4148-9207-D935CA5EB601}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B89368FE-2BEF-404E-9560-4F9328F33FD0} = {B89368FE-2BEF-404E-9560-4F9328F33FD0}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modnar_Controller", "Modnar_GUI\Modnar_Controller.csproj", "{02300CB4-D120-4DF8-B682-A6D809D18454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modnar_View", "Modnar_GUI\Modnar_View.csproj", "{02300CB4-D120-4DF8-B682-A6D809D18454}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modnar_Model", "Modnar_Model\Modnar_Model.csproj", "{E91E1EA3-F77E-457D-A362-637235D0025F}"
 EndProject

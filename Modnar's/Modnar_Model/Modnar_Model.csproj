@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Modnar_Classes\Modnar_View.csproj" />
+    <ProjectReference Include="..\Modnar_Classes\Modnar_Controller.csproj" />
   </ItemGroup>
 
 </Project>
