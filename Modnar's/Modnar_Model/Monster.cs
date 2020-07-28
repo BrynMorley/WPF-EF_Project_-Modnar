@@ -9,6 +9,9 @@ namespace Modnar_Classes
 
         }
 
+        public Monster()
+        { }
+
         public int monsterID { get; set; }
     }
 }

@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Modnar_Classes
 {
-   public abstract class Character : IAttackable
+    public abstract class Character : IAttackable
     {
         private int _health;
         private string _name;
         private int _damage;
         private int _speed;
 
-       
+
         public int Health
         {
             get { return _health; } set { _health = value; }
@@ -33,7 +33,7 @@ namespace Modnar_Classes
             set { _speed = value; }
         }
 
-        public Character (string name, int health, int damage, int speed)
+        public Character(string name, int health, int damage, int speed)
         {
             _name = name;
             _health = health;
@@ -41,6 +41,8 @@ namespace Modnar_Classes
             _speed = speed;
         }
 
+        public Character()
+        { }
         public virtual string Attack(IAttackable target)
         {
             target.Health -= _damage;

@@ -13,16 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
-
+using Modnar_Model;
 using Modnar_Classes;
 
 namespace Modnar_GUI
-{
+{ 
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        DatabaseManager dm = new DatabaseManager();
+
         Player playerOne = new Player("Player 1", 100, 10,1);
         Player playerTwo = new Player("Player 2", 100, 10,1);
         Player playerThree = new Player("Player 3", 100, 10,1);
@@ -100,6 +103,7 @@ namespace Modnar_GUI
             {
                 killCount++;
                 Label_Kills.Content = $"Monster Kills: {killCount}";
+                currentMonster =dm.RandomMonster();
             }
             turnsPassed++;
             Label_Current_Turn.Content = $"Turn: {turnsPassed}";

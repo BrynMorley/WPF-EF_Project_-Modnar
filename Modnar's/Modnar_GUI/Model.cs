@@ -15,25 +15,5 @@ namespace Modnar_Model
 
     }
 
-    /*
-    public class Player
-    {
-        public int PlayerId { get; set; }
-        public string Name { get; set; }
-        public int Health { get; set; }
-        public int Damage { get; set; }
-        public int Speed { get; set; }
-
-    }
-
-    public class Monster
-    {
-        public int MonsterId { get; set; }
-        public string Name { get; set; }
-        public int Health { get; set; }
-        public int Damage { get; set; }
-        public int Speed { get; set; }
-
-    }
-    */
+   
 }
