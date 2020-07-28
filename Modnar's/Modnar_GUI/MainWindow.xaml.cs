@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
 
 using Modnar_Classes;
 
@@ -22,35 +23,76 @@ namespace Modnar_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Player playerTest = new Player("Test", 100, 10,1);
+        Player playerOne = new Player("Player 1", 100, 10,1);
+        Player playerTwo = new Player("Player 2", 100, 10,1);
+        Player playerThree = new Player("Player 3", 100, 10,1);
+        Player playerFour = new Player("Player 4", 100, 10,1);
 
         Player currentPlayer = new Player("Default", 50, 5, 1);
 
+        //Player randomPlayer = new Player("Random", 50, 5, 1);
+
         Monster currentMonster = new Monster("Monster", 100, 10, 2);
+
+        Queue playerQueue = new Queue();
+        int killCount = 0;
 
         public MainWindow()
         {
             InitializeComponent();
-            Label_P1Name.Content = playerTest.Name;
-            Label_P1Health.Content = playerTest.Health;
 
-          
-            //while(playerTest.Health != 0 || currentMonster.Health !=0)
-            //{ 
-            
-            //}
-            
+            Label_P1Name.Content = playerOne.Name;
+            Label_P1Health.Content = playerOne.Health;
+
+            Label_P2Name.Content = playerTwo.Name;
+            Label_P2Health.Content = playerTwo.Health;
+
+            Label_P3Name.Content = playerThree.Name;
+            Label_P3Health.Content = playerThree.Health;
+
+            Label_P4Name.Content = playerFour.Name;
+            Label_P4Health.Content = playerFour.Health;
+
+            playerQueue.Enqueue(playerOne);
+            playerQueue.Enqueue(playerTwo);
+            playerQueue.Enqueue(playerThree);
+            playerQueue.Enqueue(playerFour);
+
         }
        
 
 
         private void Button_Attack_Click(object sender, RoutedEventArgs e)
         {
-            Label_Info.Content = playerTest.Attack(currentMonster);
+            currentPlayer = (Player)playerQueue.Dequeue();
+            playerQueue.Enqueue(currentPlayer);
+
+            Label_Info.Content = currentPlayer.Attack(currentMonster);
             if (currentMonster.Health > 0)
             {
-                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTest));
-                Label_P1Health.Content = playerTest.Health;
+                Random rand = new Random();
+                int random = rand.Next(1, 5);
+
+                switch (random)
+                {
+                    case 1:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
+                        Label_P1Health.Content = playerOne.Health;
+                        break;
+                    case 2:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
+                        Label_P2Health.Content = playerTwo.Health;
+                        break;
+                    case 3:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
+                        Label_P3Health.Content = playerThree.Health;
+                        break;
+                    case 4:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
+                        Label_P4Health.Content = playerFour.Health;
+                        break;
+                }
+                
             }
 
         }
