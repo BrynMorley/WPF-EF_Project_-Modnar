@@ -78,6 +78,7 @@ namespace Modnar_GUI
             currentPlayer = (Player)playerQueue.Dequeue();
             playerQueue.Enqueue(currentPlayer);
 
+           
             Label_Info.Content = currentPlayer.Attack(currentMonster);
             if (currentMonster.Health > 0)
             {
@@ -118,10 +119,32 @@ namespace Modnar_GUI
         private void Button_Heal_Click(object sender, RoutedEventArgs e)
         {
             currentPlayer = (Player)playerQueue.Dequeue();
-            
 
-            Label_Info.Content = currentPlayer.Heal();
+            if (currentPlayer.Name == playerOne.Name)
+            {
+                Label_Info.Content = playerOne.Heal();
+                Label_P1Health.Content = playerOne.Health;
+            }
+            else if (currentPlayer.Name == playerTwo.Name)
+            {
+                Label_Info.Content = playerTwo.Heal();
+                Label_P2Health.Content = playerTwo.Health;
+            }
+            else if (currentPlayer.Name == playerThree.Name)
+            {
+                Label_Info.Content = playerThree.Heal();
+                Label_P3Health.Content = playerThree.Health;
+            }
+            else if (currentPlayer.Name == playerFour.Name)
+            {
+                Label_Info.Content = playerFour.Heal();
+                Label_P4Health.Content = playerFour.Health;
+            }
+
+
             playerQueue.Enqueue(currentPlayer);
+
+
             Random rand = new Random();
             int random = rand.Next(1, 5);
 
@@ -145,6 +168,38 @@ namespace Modnar_GUI
                     break;
             }
 
+            turnsPassed++;
+            Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+        }
+
+        private void Button_Taunt_Click(object sender, RoutedEventArgs e)
+        {
+            currentPlayer = (Player)playerQueue.Dequeue();
+            Label_Info.Content = currentPlayer.Taunt(currentMonster);
+
+            if (currentPlayer.Name == playerOne.Name)
+            {
+                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
+                Label_P1Health.Content = playerOne.Health;
+            }
+            else if (currentPlayer.Name == playerTwo.Name)
+            {
+                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
+                Label_P2Health.Content = playerTwo.Health;
+            }
+            else if (currentPlayer.Name == playerThree.Name)
+            {
+                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
+                Label_P3Health.Content = playerThree.Health;
+            }
+            else if (currentPlayer.Name == playerFour.Name)
+            {
+                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
+                Label_P4Health.Content = playerFour.Health;
+            }
+
+
+            playerQueue.Enqueue(currentPlayer);
             turnsPassed++;
             Label_Current_Turn.Content = $"Turn: {turnsPassed}";
         }
