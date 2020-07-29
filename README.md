@@ -3,6 +3,7 @@
 The purpose of this project is to create a small dungeon RPG. 
 The play creates a party of 4 and then can fight monsters, picked randomly from a database of monsters.
 
+# Sprint 1
 ## Sprint 1 Goals
 Basic functioning game with monster and players that can attack each other
 
@@ -17,6 +18,20 @@ The next goal will be to create a turn based system and then to implement a data
 * Testing also needs to be orgnaised with seperate files for each class i'm testing
 * Sprint 2's main focus will be the creation of the database layer, and a to create a better user experience by supplying more feedback
 
+# Sprint 2
 ## Sprint 2 Goals
 * Link up a Database of monsters and players to the rest of the project
 * Create a well display User Interface which, gives good feedback on the action undertaken.
+
+# Sprint 2 Retrospective
+I'm very happy with my work this sprint as I have implemented the databases I needed for my game to work. Special thanks to Jia for assisting me with this
+
+# Sprint 2 Review
+* Most of my Sprint goals were met in this Sprint
+* The used needs more options on what they can do so there is more gameplay to the game other than just pressing the attack button
+
+# Sprint 3
+## Sprint 3 Goals
+* Create and choose player characters within the game
+* Give player character more choices. Like Taunt and heal.
+* Defeat and score screen
