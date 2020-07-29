@@ -34,8 +34,6 @@ namespace Modnar_GUI
 
         Player currentPlayer = new Player("Default", 50, 5, 1,100);
 
-        //Player randomPlayer = new Player("Random", 50, 5, 1);
-
         Monster currentMonster = new Monster("Monster", 100, 10, 2);
 
         Queue playerQueue = new Queue();
@@ -52,16 +50,16 @@ namespace Modnar_GUI
             playerFour = dm.ReadPlayerID(4);
 
             Label_P1Name.Content = playerOne.Name;
-            Label_P1Health.Content = playerOne.Health;
+            Label_P1Health.Content = $"Health :{playerOne.Health}";
 
             Label_P2Name.Content = playerTwo.Name;
-            Label_P2Health.Content = playerTwo.Health;
+            Label_P2Health.Content = $"Health :{playerTwo.Health}";
 
             Label_P3Name.Content = playerThree.Name;
-            Label_P3Health.Content = playerThree.Health;
+            Label_P3Health.Content = $"Health :{playerThree.Health}";
 
             Label_P4Name.Content = playerFour.Name;
-            Label_P4Health.Content = playerFour.Health;
+            Label_P4Health.Content = $"Health :{playerFour.Health}";
 
             playerQueue.Enqueue(playerOne);
             playerQueue.Enqueue(playerTwo);
@@ -89,19 +87,19 @@ namespace Modnar_GUI
                 {
                     case 1:
                         Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
-                        Label_P1Health.Content = playerOne.Health;
+                        Label_P1Health.Content = $"Health :{playerOne.Health}";
                         break;
                     case 2:
                         Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
-                        Label_P2Health.Content = playerTwo.Health;
+                        Label_P2Health.Content = $"Health :{playerTwo.Health}";
                         break;
                     case 3:
                         Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
-                        Label_P3Health.Content = playerThree.Health;
+                        Label_P3Health.Content = $"Health :{playerThree.Health}";
                         break;
                     case 4:
                         Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
-                        Label_P4Health.Content = playerFour.Health;
+                        Label_P4Health.Content = $"Health :{playerFour.Health}";
                         break;
                 }
                 
@@ -123,22 +121,22 @@ namespace Modnar_GUI
             if (currentPlayer.Name == playerOne.Name)
             {
                 Label_Info.Content = playerOne.Heal();
-                Label_P1Health.Content = playerOne.Health;
+                Label_P1Health.Content = $"Health :{playerOne.Health}";
             }
             else if (currentPlayer.Name == playerTwo.Name)
             {
                 Label_Info.Content = playerTwo.Heal();
-                Label_P2Health.Content = playerTwo.Health;
+                Label_P2Health.Content = $"Health :{playerTwo.Health}";
             }
             else if (currentPlayer.Name == playerThree.Name)
             {
                 Label_Info.Content = playerThree.Heal();
-                Label_P3Health.Content = playerThree.Health;
+                Label_P3Health.Content = $"Health :{playerThree.Health}";
             }
             else if (currentPlayer.Name == playerFour.Name)
             {
                 Label_Info.Content = playerFour.Heal();
-                Label_P4Health.Content = playerFour.Health;
+                Label_P4Health.Content = $"Health :{playerFour.Health}";
             }
 
 
@@ -152,19 +150,19 @@ namespace Modnar_GUI
             {
                 case 1:
                     Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
-                    Label_P1Health.Content = playerOne.Health;
+                    Label_P1Health.Content = $"Health :{playerOne.Health}";
                     break;
                 case 2:
                     Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
-                    Label_P2Health.Content = playerTwo.Health;
+                    Label_P2Health.Content = $"Health :{playerTwo.Health}";
                     break;
                 case 3:
                     Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
-                    Label_P3Health.Content = playerThree.Health;
+                    Label_P3Health.Content = $"Health :{playerThree.Health}";
                     break;
                 case 4:
                     Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
-                    Label_P4Health.Content = playerFour.Health;
+                    Label_P4Health.Content = $"Health :{playerFour.Health}";
                     break;
             }
 
@@ -180,22 +178,22 @@ namespace Modnar_GUI
             if (currentPlayer.Name == playerOne.Name)
             {
                 Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
-                Label_P1Health.Content = playerOne.Health;
+                Label_P1Health.Content = $"Health :{playerOne.Health}";
             }
             else if (currentPlayer.Name == playerTwo.Name)
             {
                 Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
-                Label_P2Health.Content = playerTwo.Health;
+                Label_P2Health.Content = $"Health :{playerTwo.Health}";
             }
             else if (currentPlayer.Name == playerThree.Name)
             {
                 Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
-                Label_P3Health.Content = playerThree.Health;
+                Label_P3Health.Content = $"Health :{playerThree.Health}";
             }
             else if (currentPlayer.Name == playerFour.Name)
             {
                 Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
-                Label_P4Health.Content = playerFour.Health;
+                Label_P4Health.Content = $"Health :{playerFour.Health}";
             }
 
 
