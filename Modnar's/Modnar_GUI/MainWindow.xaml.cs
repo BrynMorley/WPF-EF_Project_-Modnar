@@ -16,6 +16,7 @@ using System.Collections;
 using Modnar_Model;
 using Modnar_Classes;
 
+
 namespace Modnar_GUI
 { 
 
@@ -45,6 +46,10 @@ namespace Modnar_GUI
         public MainWindow()
         {
             InitializeComponent();
+            playerOne = dm.ReadPlayerID(1);
+            playerTwo = dm.ReadPlayerID(2);
+            playerThree = dm.ReadPlayerID(3);
+            playerFour = dm.ReadPlayerID(4);
 
             Label_P1Name.Content = playerOne.Name;
             Label_P1Health.Content = playerOne.Health;
@@ -63,6 +68,7 @@ namespace Modnar_GUI
             playerQueue.Enqueue(playerThree);
             playerQueue.Enqueue(playerFour);
 
+            currentMonster = dm.ReadFirstMonster();
         }
        
 
@@ -105,6 +111,40 @@ namespace Modnar_GUI
                 Label_Kills.Content = $"Monster Kills: {killCount}";
                 currentMonster =dm.RandomMonster();
             }
+            turnsPassed++;
+            Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+        }
+
+        private void Button_Heal_Click(object sender, RoutedEventArgs e)
+        {
+            currentPlayer = (Player)playerQueue.Dequeue();
+            
+
+            Label_Info.Content = currentPlayer.Heal();
+            playerQueue.Enqueue(currentPlayer);
+            Random rand = new Random();
+            int random = rand.Next(1, 5);
+
+            switch (random)
+            {
+                case 1:
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
+                    Label_P1Health.Content = playerOne.Health;
+                    break;
+                case 2:
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
+                    Label_P2Health.Content = playerTwo.Health;
+                    break;
+                case 3:
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
+                    Label_P3Health.Content = playerThree.Health;
+                    break;
+                case 4:
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
+                    Label_P4Health.Content = playerFour.Health;
+                    break;
+            }
+
             turnsPassed++;
             Label_Current_Turn.Content = $"Turn: {turnsPassed}";
         }

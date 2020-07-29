@@ -38,6 +38,8 @@
         <Label x:Name="Label_Current_Turn" Content="Turn: 0" Grid.Column="1" Grid.Row="6" Background="Aquamarine" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         <Label x:Name="Label_Kills" Content="Monster Kills: 0" Grid.Column="1" Grid.Row="7" Background="Aquamarine" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         <Button x:Name="Button_Attack" Content="Attack" Grid.Column="2" Grid.Row="6" Click="Button_Attack_Click"/>
+        <Button x:Name="Button_Taunt" Content="Taunt" Grid.Column="3" Grid.Row="6" />
+        <Button x:Name="Button_Heal" Content="Heal" Grid.Column="4" Grid.Row="6" Click="Button_Heal_Click" />
         
         <Label x:Name="Label_P1Name" Content="" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>
         <Label x:Name="Label_P1Health" Content="Health:" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>

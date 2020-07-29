@@ -17,17 +17,15 @@ namespace Modnar_Model
                 db.SaveChanges();
             }
         }
-        public Monster ReadMonster(int id)
+
+        public Monster ReadFirstMonster()
         {
             using (var db = new ModnarContext())
             {
                 var monster = db.Monsters
-                    .Where(m => m.monsterID == id)
                     .First();
                     return monster;
-            }
-
-            
+            } 
         }
 
         public Monster RandomMonster()
@@ -43,5 +41,27 @@ namespace Modnar_Model
                 return monster;
             }
         }
+
+        public void CreatePlayer(string name, int health, int damage, int speed)
+        {
+            using (var db = new ModnarContext())
+            {
+                db.Add(new Player { Name = name, Health = health, Damage = damage, Speed = speed });
+                db.SaveChanges();
+            }
+        }
+
+        public Player ReadPlayerID(int id)
+        {
+            using (var db = new ModnarContext())
+            {
+                var player = db.Players
+                    .Where(p => p.playerID == id)
+                    .First();
+                return player;
+            }
+        }
+
+
     }
 }

@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Modnar_Model\Modnar_Model.csproj" />
+    <ProjectReference Include="..\Modnar_Classes\Modnar_Controller.csproj" />
   </ItemGroup>
 
 </Project>

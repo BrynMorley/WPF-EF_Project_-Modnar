@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Modnar_Classes;
 using NUnit.Framework.Constraints;
+using Modnar_Model;
 
 namespace Modnar_Tests
 {
@@ -9,6 +10,7 @@ namespace Modnar_Tests
         [SetUp]
         public void Setup()
         {
+            
         }
 
         [TestCase ("Test", 100)]
@@ -38,6 +40,16 @@ namespace Modnar_Tests
             var expected = "Test attacks TestMonster and kills it!!!";
             Assert.AreEqual(player.Attack(monster), expected);
 
+        }
+
+        [Test]
+        public void SophieIsFetchedFromDatabase()
+        {
+            DatabaseManager dm = new DatabaseManager();
+            var player = dm.ReadPlayerID(1);
+            var monster = new Monster("TestMonster", 10, 10, 10);
+            var expected = "Sophie attacks TestMonster and kills it!!!";
+            Assert.AreEqual(player.Attack(monster), expected);
         }
     }
 }
