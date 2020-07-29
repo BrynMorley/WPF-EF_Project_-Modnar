@@ -8,9 +8,9 @@ namespace Modnar_Classes
     {
        private int _maxHealth;
 
-        public Player (string name, int health, int damage, int speed, int MaxHealth) : base(name, health, damage, speed)
+        public Player (string name, int health, int damage, int speed, int maxHealth) : base(name, health, damage, speed)
         {
-           _maxHealth = MaxHealth;
+           _maxHealth = maxHealth;
         }
 
         public Player()
@@ -18,6 +18,12 @@ namespace Modnar_Classes
         
         }
         public int playerID { get; set; }
+
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
+        }
 
         public string Heal()
         {

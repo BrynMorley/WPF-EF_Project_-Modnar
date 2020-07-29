@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Modnar_Model;
 
 namespace Modnar_Model.Migrations
 {
     [DbContext(typeof(ModnarContext))]
-    partial class ModnarContextModelSnapshot : ModelSnapshot
+    [Migration("20200729150741_AddMaxHealthToPlayer")]
+    partial class AddMaxHealthToPlayer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,9 +55,6 @@ namespace Modnar_Model.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Health")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaxHealth")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

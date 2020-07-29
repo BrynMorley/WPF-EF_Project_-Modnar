@@ -27,12 +27,12 @@ namespace Modnar_GUI
     {
         DatabaseManager dm = new DatabaseManager();
 
-        Player playerOne = new Player("Player 1", 100, 10,1);
-        Player playerTwo = new Player("Player 2", 100, 10,1);
-        Player playerThree = new Player("Player 3", 100, 10,1);
-        Player playerFour = new Player("Player 4", 100, 10,1);
+        Player playerOne = new Player("Player 1", 100, 10,1,100);
+        Player playerTwo = new Player("Player 2", 100, 10,1,100);
+        Player playerThree = new Player("Player 3", 100, 10,1,100);
+        Player playerFour = new Player("Player 4", 100, 10,1,100);
 
-        Player currentPlayer = new Player("Default", 50, 5, 1);
+        Player currentPlayer = new Player("Default", 50, 5, 1,100);
 
         //Player randomPlayer = new Player("Random", 50, 5, 1);
 
