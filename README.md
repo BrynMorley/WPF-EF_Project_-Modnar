@@ -43,4 +43,6 @@ I didn't get everything I wanted done in time with this sprint as I haven't got 
 Although not all my goals were achieved in time, the product owner was still pleased with my progress since the last sprint and had a lot of good feedback on the GUI of my project.
 
 # Sprint 4
-Sprint 4 does not have a review, but as a retrospective, I fixed my issue I had in sprint 3 and I am happy with my work, I am creating a few automated tests for my code to finish up
+Sprint 4 does not have a review, but as a retrospective, I fixed my issue I had in sprint 3 and I am happy with my work, I am creating a few automated tests for my code to finish up.
+Unfortunatly I didn't have enough time left to fix my Game over state, the code for it to game over when one player is dead works but is currently commented out.
+However the game does become "unplayable" when all charaters are dead, so you would be able to see your score.
