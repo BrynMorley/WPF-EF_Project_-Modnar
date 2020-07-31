@@ -52,6 +52,7 @@
 
         <Button x:Name="Button_CreatePlayer" Content="Create Player" Grid.Column="7" Click="Button_CreatePlayer_Click"/>
         <Button x:Name="Button_SelectPlayers" Content="Select Players" Grid.Column="7" Grid.Row="1" Click="Button_SelectPlayers_Click"/>
+        <Button x:Name="Button_CreateMonster" Content="Create Monster" Grid.Column="7" Grid.Row="2" Click="Button_CreateMonster_Click"/>
     </Grid>
    
     

@@ -44,11 +44,9 @@ namespace Modnar_GUI
         public MainWindow()
         {  
             InitializeComponent();
-
-            playerOne = dm.ReadPlayerID(1);
-            playerTwo = dm.ReadPlayerID(2);
-            playerThree = dm.ReadPlayerID(3);
-            playerFour = dm.ReadPlayerID(4);
+            
+            PlayerSelect playerSelect = new PlayerSelect();
+            playerSelect.ShowDialog();
 
             Label_P1Name.Content = playerOne.Name;
             Label_P1Health.Content = $"Health :{playerOne.Health}";
@@ -66,6 +64,7 @@ namespace Modnar_GUI
             playerQueue.Enqueue(playerTwo);
             playerQueue.Enqueue(playerThree);
             playerQueue.Enqueue(playerFour);
+
 
             currentMonster = dm.ReadFirstMonster();
         }
@@ -227,9 +226,36 @@ namespace Modnar_GUI
 
         private void Button_SelectPlayers_Click(object sender, RoutedEventArgs e)
         {
-            PlayerSelect playerSelect = new PlayerSelect();
-            playerSelect.Show();
+            playerQueue.Dequeue();
+            playerQueue.Dequeue();
+            playerQueue.Dequeue();
+            playerQueue.Dequeue();
             
+            PlayerSelect playerSelect = new PlayerSelect();
+            playerSelect.ShowDialog();
+            Label_P1Name.Content = playerOne.Name;
+            Label_P1Health.Content = $"Health :{playerOne.Health}";
+
+            Label_P2Name.Content = playerTwo.Name;
+            Label_P2Health.Content = $"Health :{playerTwo.Health}";
+
+            Label_P3Name.Content = playerThree.Name;
+            Label_P3Health.Content = $"Health :{playerThree.Health}";
+
+            Label_P4Name.Content = playerFour.Name;
+            Label_P4Health.Content = $"Health :{playerFour.Health}";
+
+            playerQueue.Enqueue(playerOne);
+            playerQueue.Enqueue(playerTwo);
+            playerQueue.Enqueue(playerThree);
+            playerQueue.Enqueue(playerFour);
+
+        }
+
+        private void Button_CreateMonster_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMonster createMonster = new CreateMonster();
+            createMonster.Show();
         }
     } 
 }
