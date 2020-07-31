@@ -38,17 +38,16 @@ namespace Modnar_GUI
 
         Queue playerQueue = new Queue();
 
-        int killCount = 0;
+       public int killCount = 0;
+        int playerDeaths = 0;
         int turnsPassed = 0;
 
         public MainWindow()
         {  
             InitializeComponent();
-
-            playerOne = dm.ReadPlayerID(1);
-            playerTwo = dm.ReadPlayerID(2);
-            playerThree = dm.ReadPlayerID(3);
-            playerFour = dm.ReadPlayerID(4);
+            
+            PlayerSelect playerSelect = new PlayerSelect();
+            playerSelect.ShowDialog();
 
             Label_P1Name.Content = playerOne.Name;
             Label_P1Health.Content = $"Health :{playerOne.Health}";
@@ -67,56 +66,92 @@ namespace Modnar_GUI
             playerQueue.Enqueue(playerThree);
             playerQueue.Enqueue(playerFour);
 
+
             currentMonster = dm.ReadFirstMonster();
+            Label_MonsterName.Content = $"Monster: {currentMonster.Name}";
+            Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
         }
        
 
 
         private void Button_Attack_Click(object sender, RoutedEventArgs e)
         {
-            currentPlayer = (Player)playerQueue.Dequeue();
-            playerQueue.Enqueue(currentPlayer);
-
            
-            Label_Info.Content = currentPlayer.Attack(currentMonster);
-            if (currentMonster.Health > 0)
-            {
-                Random rand = new Random();
-                int random = rand.Next(1, 5);
+            currentPlayer = (Player)playerQueue.Dequeue();
 
-                switch (random)
-                {
-                    case 1:
-                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
-                        Label_P1Health.Content = $"Health :{playerOne.Health}";
-                        Label_P1Name.Content = playerOne.Name;
-                        break;
-                    case 2:
-                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
-                        Label_P2Name.Content = playerTwo.Name;
-                        Label_P2Health.Content = $"Health :{playerTwo.Health}";
-                        break;
-                    case 3:
-                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
-                        Label_P3Name.Content = playerThree.Name;
-                        Label_P3Health.Content = $"Health :{playerThree.Health}";
-                        break;
-                    case 4:
-                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
-                        Label_P4Name.Content = playerFour.Name;
-                        Label_P4Health.Content = $"Health :{playerFour.Health}";
-                        break;
-                }
-                
-            }
-            else
+            //int i = 0;
+            //while (currentPlayer.Health<=0 && i <4)  
+            //{
+            //    i++;
+
+            //    if (i== 4)
+            //    {
+            //        GameOver gameOver = new GameOver();
+            //        gameOver.ShowDialog();
+            //    }
+            //    currentPlayer = (Player)playerQueue.Dequeue();
+            //}
+            //if (playerDeaths == 4)
+            //{
+            //    GameOver gameOver = new GameOver();
+            //    gameOver.ShowDialog();
+            //}
+
+            if (currentPlayer.Health > 0)
             {
-                killCount++;
-                Label_Kills.Content = $"Monster Kills: {killCount}";
-                currentMonster =dm.RandomMonster();
-            }
+                playerQueue.Enqueue(currentPlayer);
+
+
+
+                Label_Info.Content = currentPlayer.Attack(currentMonster);
+                Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
+
+                //if (currentMonster.Health > 0)
+                //{
+                    Random rand = new Random();
+                    int random = rand.Next(1, 5);
+
+                    switch (random)
+                    {
+                        case 1:
+                            Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
+                            Label_P1Health.Content = $"Health :{playerOne.Health}";
+                            Label_P1Name.Content = playerOne.Name;
+                            if (playerOne.Health < 0) { Label_P1Health.Content = "DEAD"; playerDeaths++; }
+                            break;
+                        case 2:
+                            Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
+                            Label_P2Name.Content = playerTwo.Name;
+                            Label_P2Health.Content = $"Health :{playerTwo.Health}";
+                            if (playerTwo.Health < 0) { Label_P2Health.Content = "DEAD"; playerDeaths++; }
+                            break;
+                        case 3:
+                            Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
+                            Label_P3Name.Content = playerThree.Name;
+                            Label_P3Health.Content = $"Health :{playerThree.Health}";
+                            if (playerThree.Health < 0) { Label_P3Health.Content = "DEAD"; playerDeaths++; }
+                            break;
+                        case 4:
+                            Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
+                            Label_P4Name.Content = playerFour.Name;
+                            Label_P4Health.Content = $"Health :{playerFour.Health}";
+                            if (playerFour.Health < 0) { Label_P4Health.Content = "DEAD"; playerDeaths++; }
+                            break;
+                    }
+
+                }
+                else
+                {
+                    killCount++;
+                    Label_Kills.Content = $"Monster Kills: {killCount}";
+                    currentMonster = dm.RandomMonster();
+                    Label_MonsterName.Content = $"Monster: {currentMonster.Name}";
+                    Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
+                }
+            //}
             turnsPassed++;
             Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+           
         }
 
         private void Button_Heal_Click(object sender, RoutedEventArgs e)
@@ -227,9 +262,37 @@ namespace Modnar_GUI
 
         private void Button_SelectPlayers_Click(object sender, RoutedEventArgs e)
         {
-            PlayerSelect playerSelect = new PlayerSelect();
-            playerSelect.Show();
+            playerQueue.Dequeue();
+            playerQueue.Dequeue();
+            playerQueue.Dequeue();
+            playerQueue.Dequeue();
             
+            PlayerSelect playerSelect = new PlayerSelect();
+            playerSelect.ShowDialog();
+
+            Label_P1Name.Content = playerOne.Name;
+            Label_P1Health.Content = $"Health :{playerOne.Health}";
+
+            Label_P2Name.Content = playerTwo.Name;
+            Label_P2Health.Content = $"Health :{playerTwo.Health}";
+
+            Label_P3Name.Content = playerThree.Name;
+            Label_P3Health.Content = $"Health :{playerThree.Health}";
+
+            Label_P4Name.Content = playerFour.Name;
+            Label_P4Health.Content = $"Health :{playerFour.Health}";
+
+            playerQueue.Enqueue(playerOne);
+            playerQueue.Enqueue(playerTwo);
+            playerQueue.Enqueue(playerThree);
+            playerQueue.Enqueue(playerFour);
+
+        }
+
+        private void Button_CreateMonster_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMonster createMonster = new CreateMonster();
+            createMonster.Show();
         }
     } 
 }

@@ -40,7 +40,9 @@
         <Button x:Name="Button_Attack" Content="Attack" Grid.Column="2" Grid.Row="6" Click="Button_Attack_Click"/>
         <Button x:Name="Button_Taunt" Content="Taunt" Grid.Column="3" Grid.Row="6" Click="Button_Taunt_Click" />
         <Button x:Name="Button_Heal" Content="Heal" Grid.Column="4" Grid.Row="6" Click="Button_Heal_Click" />
-        
+        <Label x:Name="Label_MonsterName" Content="Monster:" Grid.Column="2" Grid.Row="7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="OrangeRed" />
+        <Label x:Name="Label_MonsterHealth" Content="Health:" Grid.Column="3" Grid.Row="7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="OrangeRed" />
+
         <Label x:Name="Label_P1Name" Content="" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>
         <Label x:Name="Label_P1Health" Content="Health:" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>
         <Label x:Name="Label_P2Name" Content="" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>
@@ -52,6 +54,7 @@
 
         <Button x:Name="Button_CreatePlayer" Content="Create Player" Grid.Column="7" Click="Button_CreatePlayer_Click"/>
         <Button x:Name="Button_SelectPlayers" Content="Select Players" Grid.Column="7" Grid.Row="1" Click="Button_SelectPlayers_Click"/>
+        <Button x:Name="Button_CreateMonster" Content="Create Monster" Grid.Column="7" Grid.Row="2" Click="Button_CreateMonster_Click"/>
     </Grid>
    
     
