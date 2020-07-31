@@ -67,6 +67,8 @@ namespace Modnar_GUI
 
 
             currentMonster = dm.ReadFirstMonster();
+            Label_MonsterName.Content = $"Monster: {currentMonster.Name}";
+            Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
         }
        
 
@@ -78,6 +80,8 @@ namespace Modnar_GUI
 
            
             Label_Info.Content = currentPlayer.Attack(currentMonster);
+            Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
+
             if (currentMonster.Health > 0)
             {
                 Random rand = new Random();
@@ -113,6 +117,8 @@ namespace Modnar_GUI
                 killCount++;
                 Label_Kills.Content = $"Monster Kills: {killCount}";
                 currentMonster =dm.RandomMonster();
+                Label_MonsterName.Content = $"Monster: {currentMonster.Name}";
+                Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
             }
             turnsPassed++;
             Label_Current_Turn.Content = $"Turn: {turnsPassed}";
