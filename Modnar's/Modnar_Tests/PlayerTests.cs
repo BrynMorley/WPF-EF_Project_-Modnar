@@ -51,5 +51,26 @@ namespace Modnar_Tests
             var expected = "Sophie attacks TestMonster and kills it!!!";
             Assert.AreEqual(player.Attack(monster), expected);
         }
+
+        [Test]
+        public void HealCanOnlyBeUsedThreeTimes()
+        {
+            var player = new Player("player", 1, 1, 1, 1);
+            var expected = "player is out of heals! Turn wasted!";
+            player.Heal();
+            player.Heal();
+            player.Heal();
+            Assert.AreEqual(player.Heal(), expected);
+        }
+      
+        
+        [Test]
+        public void PlayerTauntsTarget()
+        {
+            var player = new Player("Test", 100, 10, 10, 100);
+            var monster = new Monster("TestMonster", 10, 10, 10);
+            var expected = $"Test taunts the TestMonster";
+            Assert.AreEqual(player.Taunt(monster), expected);
+        }
     }
 }
