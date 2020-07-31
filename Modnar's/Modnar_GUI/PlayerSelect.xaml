@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Modnar_GUI"
         mc:Ignorable="d"
-        Title="PlayerSelect" Height="450" Width="800">
+        Title="PlayerSelect" Height="450" Width="800" Background="SkyBlue">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Player Select" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" FontSize="46"/>
+        <ListBox x:Name="ListBox_PlayerSelect" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" />
+        <Button x:Name="Button_SelectPlayerOne" Content="Select Player 1" Grid.Column="0" Grid.Row="3" Click="Button_SelectPlayerOne_Click"/>
+        <Button x:Name="Button_SelectPlayerTwo" Content="Select Player 2" Grid.Column="1" Grid.Row="3" Click="Button_SelectPlayerTwo_Click"/>
+        <Button x:Name="Button_SelectPlayerThree" Content="Select Player 3" Grid.Column="2" Grid.Row="3" Click="Button_SelectPlayerThree_Click"/>
+        <Button x:Name="Button_SelectPlayerFour" Content="Select Player 4" Grid.Column="3" Grid.Row="3" Click="Button_SelectPlayerFour_Click"/>
     </Grid>
 </Window>

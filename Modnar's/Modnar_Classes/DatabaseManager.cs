@@ -46,7 +46,7 @@ namespace Modnar_Model
         {
             using (var db = new ModnarContext())
             {
-                db.Add(new Player { Name = name, Health = health, Damage = damage, Speed = speed });
+                db.Add(new Player { Name = name, Health = health, Damage = damage, Speed = speed, MaxHealth = health }) ;
                 db.SaveChanges();
             }
         }
@@ -57,11 +57,21 @@ namespace Modnar_Model
             {
                 var player = db.Players
                     .Where(p => p.playerID == id)
-                    .First();
-                return player;
+                        .First();
+                    return player;
             }
         }
 
+        public List<Player> ReadPlayer_List()
+        {
+            using (var db = new ModnarContext())
+            {
+                return db.Players
+                    .ToList();
+            }  
+        }
 
     }
+
+
 }

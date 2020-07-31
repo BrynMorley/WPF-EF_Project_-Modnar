@@ -49,6 +49,9 @@
         <Label x:Name="Label_P3Health" Content="Health:" Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>
         <Label x:Name="Label_P4Name" Content="" Grid.Column="0" Grid.Row="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>
         <Label x:Name="Label_P4Health" Content="Health:" Grid.Column="0" Grid.Row="7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="ExtraBold" Background="White"/>
+
+        <Button x:Name="Button_CreatePlayer" Content="Create Player" Grid.Column="7" Click="Button_CreatePlayer_Click"/>
+        <Button x:Name="Button_SelectPlayers" Content="Select Players" Grid.Column="7" Grid.Row="1" Click="Button_SelectPlayers_Click"/>
     </Grid>
    
     

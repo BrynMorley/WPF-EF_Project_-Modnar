@@ -37,5 +37,10 @@ namespace Modnar_Classes
         {
             return $"{Name} taunts the {target.Name}";
         }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Health: {Health}, Damage: {Damage}";
+        }
     }
 }
