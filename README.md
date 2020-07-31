@@ -35,3 +35,12 @@ I'm very happy with my work this sprint as I have implemented the databases I ne
 * Create and choose player characters within the game
 * Give player character more choices. Like Taunt and heal.
 * Defeat and score screen
+
+# Sprint 3 Retrospective
+I didn't get everything I wanted done in time with this sprint as I haven't got the player select fully working, it does not fullr replace the current players in the game, only partially.
+
+# Sprint 3 Review
+Although not all my goals were achieved in time, the product owner was still pleased with my progress since the last sprint and had a lot of good feedback on the GUI of my project.
+
+# Sprint 4
+Sprint 4 does not have a review, but as a retrospective, I fixed my issue I had in sprint 3 and I am happy with my work, I am creating a few automated tests for my code to finish up
