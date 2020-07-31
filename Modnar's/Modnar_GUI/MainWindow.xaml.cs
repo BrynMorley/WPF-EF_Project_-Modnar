@@ -90,24 +90,26 @@ namespace Modnar_GUI
             //        gameOver.ShowDialog();
             //    }
             //    currentPlayer = (Player)playerQueue.Dequeue();
-            //}
+            //} 
+
             //if (playerDeaths == 4)
             //{
             //    GameOver gameOver = new GameOver();
             //    gameOver.ShowDialog();
             //}
 
+            playerQueue.Enqueue(currentPlayer);
             if (currentPlayer.Health > 0)
             {
-                playerQueue.Enqueue(currentPlayer);
+
 
 
 
                 Label_Info.Content = currentPlayer.Attack(currentMonster);
                 Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
 
-                //if (currentMonster.Health > 0)
-                //{
+                if (currentMonster.Health > 0)
+                {
                     Random rand = new Random();
                     int random = rand.Next(1, 5);
 
@@ -148,110 +150,127 @@ namespace Modnar_GUI
                     Label_MonsterName.Content = $"Monster: {currentMonster.Name}";
                     Label_MonsterHealth.Content = $"Health:{currentMonster.Health}";
                 }
-            //}
-            turnsPassed++;
-            Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+
+                turnsPassed++;
+                Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+            }
            
         }
 
         private void Button_Heal_Click(object sender, RoutedEventArgs e)
         {
             currentPlayer = (Player)playerQueue.Dequeue();
-
-            if (currentPlayer.Name == playerOne.Name)
-            {
-                Label_Info.Content = playerOne.Heal();
-                Label_P1Name.Content = playerOne.Name;
-                Label_P1Health.Content = $"Health :{playerOne.Health}";
-            }
-            else if (currentPlayer.Name == playerTwo.Name)
-            {
-                Label_Info.Content = playerTwo.Heal();
-                Label_P2Name.Content = playerTwo.Name;
-                Label_P2Health.Content = $"Health :{playerTwo.Health}";
-            }
-            else if (currentPlayer.Name == playerThree.Name)
-            {
-                Label_Info.Content = playerThree.Heal();
-                Label_P3Name.Content = playerThree.Name;
-                Label_P3Health.Content = $"Health :{playerThree.Health}";
-            }
-            else if (currentPlayer.Name == playerFour.Name)
-            {
-                Label_Info.Content = playerFour.Heal();
-                Label_P4Health.Content = $"Health :{playerFour.Health}";
-                Label_P4Name.Content = playerFour.Name;
-            }
-
-
             playerQueue.Enqueue(currentPlayer);
 
-
-            Random rand = new Random();
-            int random = rand.Next(1, 5);
-
-            switch (random)
+            if (currentPlayer.Health > 0)
             {
-                case 1:
-                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
+                if (currentPlayer.Name == playerOne.Name)
+                {
+                    Label_Info.Content = playerOne.Heal();
                     Label_P1Name.Content = playerOne.Name;
                     Label_P1Health.Content = $"Health :{playerOne.Health}";
-                    break;
-                case 2:
-                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
+                }
+                else if (currentPlayer.Name == playerTwo.Name)
+                {
+                    Label_Info.Content = playerTwo.Heal();
                     Label_P2Name.Content = playerTwo.Name;
                     Label_P2Health.Content = $"Health :{playerTwo.Health}";
-                    break;
-                case 3:
-                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
+                }
+                else if (currentPlayer.Name == playerThree.Name)
+                {
+                    Label_Info.Content = playerThree.Heal();
                     Label_P3Name.Content = playerThree.Name;
                     Label_P3Health.Content = $"Health :{playerThree.Health}";
-                    break;
-                case 4:
-                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
+                }
+                else if (currentPlayer.Name == playerFour.Name)
+                {
+                    Label_Info.Content = playerFour.Heal();
                     Label_P4Health.Content = $"Health :{playerFour.Health}";
                     Label_P4Name.Content = playerFour.Name;
-                    break;
-            }
+                }
 
-            turnsPassed++;
-            Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+
+
+
+
+
+                Random rand = new Random();
+                int random = rand.Next(1, 5);
+
+                switch (random)
+                {
+                    case 1:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
+                        Label_P1Name.Content = playerOne.Name;
+                        Label_P1Health.Content = $"Health :{playerOne.Health}";
+                        if (playerOne.Health < 0) { Label_P1Health.Content = "DEAD"; playerDeaths++; }
+                        break;
+                    case 2:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
+                        Label_P2Name.Content = playerTwo.Name;
+                        Label_P2Health.Content = $"Health :{playerTwo.Health}";
+                        if (playerTwo.Health < 0) { Label_P2Health.Content = "DEAD"; playerDeaths++; }
+                        break;
+                    case 3:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
+                        Label_P3Name.Content = playerThree.Name;
+                        Label_P3Health.Content = $"Health :{playerThree.Health}";
+                        if (playerThree.Health < 0) { Label_P3Health.Content = "DEAD"; playerDeaths++; }
+                        break;
+                    case 4:
+                        Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
+                        Label_P4Health.Content = $"Health :{playerFour.Health}";
+                        Label_P4Name.Content = playerFour.Name;
+                        if (playerFour.Health < 0) { Label_P4Health.Content = "DEAD"; playerDeaths++; }
+                        break;
+                }
+
+                turnsPassed++;
+                Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+            }
         }
 
         private void Button_Taunt_Click(object sender, RoutedEventArgs e)
         {
             currentPlayer = (Player)playerQueue.Dequeue();
             Label_Info.Content = currentPlayer.Taunt(currentMonster);
-
-            if (currentPlayer.Name == playerOne.Name)
-            {
-                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
-                Label_P1Health.Content = $"Health :{playerOne.Health}";
-                Label_P1Name.Content = playerOne.Name;
-            }
-            else if (currentPlayer.Name == playerTwo.Name)
-            {
-                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
-                Label_P2Name.Content = playerTwo.Name;
-                Label_P2Health.Content = $"Health :{playerTwo.Health}";
-            }
-            else if (currentPlayer.Name == playerThree.Name)
-            {
-                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
-                Label_P3Name.Content = playerThree.Name;
-                Label_P3Health.Content = $"Health :{playerThree.Health}";
-            }
-            else if (currentPlayer.Name == playerFour.Name)
-            {
-                Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
-                Label_P4Health.Content = $"Health :{playerFour.Health}";
-                Label_P4Name.Content = playerFour.Name;
-            }
-
-
             playerQueue.Enqueue(currentPlayer);
-            turnsPassed++;
-            Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+            if (currentPlayer.Health > 0)
+            {
+                if (currentPlayer.Name == playerOne.Name)
+                {
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerOne));
+                    Label_P1Health.Content = $"Health :{playerOne.Health}";
+                    Label_P1Name.Content = playerOne.Name;
+                    if (playerOne.Health < 0) { Label_P1Health.Content = "DEAD"; playerDeaths++; }
+                }
+                else if (currentPlayer.Name == playerTwo.Name)
+                {
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerTwo));
+                    Label_P2Name.Content = playerTwo.Name;
+                    Label_P2Health.Content = $"Health :{playerTwo.Health}";
+                    if (playerTwo.Health < 0) { Label_P2Health.Content = "DEAD"; playerDeaths++; }
+                }
+                else if (currentPlayer.Name == playerThree.Name)
+                {
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerThree));
+                    Label_P3Name.Content = playerThree.Name;
+                    Label_P3Health.Content = $"Health :{playerThree.Health}";
+                    if (playerThree.Health < 0) { Label_P3Health.Content = "DEAD"; playerDeaths++; }
+                }
+                else if (currentPlayer.Name == playerFour.Name)
+                {
+                    Label_Info.Content += Environment.NewLine + (currentMonster.Attack(playerFour));
+                    Label_P4Health.Content = $"Health :{playerFour.Health}";
+                    Label_P4Name.Content = playerFour.Name;
+                    if (playerFour.Health < 0) { Label_P4Health.Content = "DEAD"; playerDeaths++; }
+                }
+
+
+
+                turnsPassed++;
+                Label_Current_Turn.Content = $"Turn: {turnsPassed}";
+            }
         }
 
         private void Button_CreatePlayer_Click(object sender, RoutedEventArgs e)
