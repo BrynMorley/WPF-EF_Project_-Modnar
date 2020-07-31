@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Modnar_Model;
 
 namespace Modnar_Model.Migrations
 {
     [DbContext(typeof(ModnarContext))]
-    partial class ModnarContextModelSnapshot : ModelSnapshot
+    [Migration("20200729151028_AddMaxHealthToPlayer2")]
+    partial class AddMaxHealthToPlayer2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -16,7 +16,7 @@ namespace Modnar_Tests
         [TestCase ("Test", 100)]
         public void PlayerHealthIsSetCorrectly(string name, int health)
         {
-            var player = new Player(name, health,10,10);
+            var player = new Player(name, health,10,10,health);
             string nameActual = "Test";
             int healthActual = 100;
             Assert.AreEqual(player.Name, nameActual);
@@ -26,7 +26,7 @@ namespace Modnar_Tests
         [Test]
         public void PlayerCanAttackMonsterAndReportCorrectly()
         {
-            var player = new Player("Test", 100, 10, 10);
+            var player = new Player("Test", 100, 10, 10,100);
             var monster = new Monster("TestMonster", 100, 10, 10);
             var expected = "Test attacks TestMonster dealing 10 damage";
             Assert.AreEqual(player.Attack(monster), expected);
@@ -35,7 +35,7 @@ namespace Modnar_Tests
         [Test]
         public void PlayerCanAttackMonsterAndItDies()
         {
-            var player = new Player("Test", 100, 10, 10);
+            var player = new Player("Test", 100, 10, 10,100);
             var monster = new Monster("TestMonster", 10, 10, 10);
             var expected = "Test attacks TestMonster and kills it!!!";
             Assert.AreEqual(player.Attack(monster), expected);

@@ -6,11 +6,11 @@ namespace Modnar_Classes
 {
    public class Player : Character
     {
-        int MaxHealth= 0;
+       private int _maxHealth;
 
-        public Player (string name, int health, int damage, int speed) : base(name, health, damage, speed)
+        public Player (string name, int health, int damage, int speed, int maxHealth) : base(name, health, damage, speed)
         {
-            MaxHealth = health;
+           _maxHealth = maxHealth;
         }
 
         public Player()
@@ -19,12 +19,28 @@ namespace Modnar_Classes
         }
         public int playerID { get; set; }
 
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
+        }
+
         public string Heal()
         {
             const int HealAmount = 50;
             Health += HealAmount;
-            if (Health > MaxHealth) Health = MaxHealth;
+            if (Health > _maxHealth) Health = _maxHealth;
             return $"{Name} heals {HealAmount} ";
+        }
+
+        public string Taunt(IAttackable target)
+        {
+            return $"{Name} taunts the {target.Name}";
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Health: {Health}, Damage: {Damage}";
         }
     }
 }
